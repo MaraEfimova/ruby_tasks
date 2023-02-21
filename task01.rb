@@ -2,11 +2,11 @@
 
 def task01(str)
   str.gsub!(/ /, "")
-  if str.scan(/[<>]=?\d+/)[0].length == str.length 
+  if str.scan(/[<>]?=?\d+/)[0].length == str.length 
     true
+  elsif str.scan(/\d+/)[0].length == str.length 
+    false
   else
-    "Error! The input must be comparison symbol with integer number after that. Spaces are optional."
+    raise "Error! The input must be comparison symbol with integer number after that. Spaces are optional."
   end
 end
-
-p task01(">=8764583674583567")
