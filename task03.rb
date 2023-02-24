@@ -5,5 +5,3 @@ def task03(arr)
     arr1, arr2 = arr.partition{|elem| elem != "foo"}
     arr1 + arr2
 end
-
-p task03([1, :here, nil, "some", "foo", "foo", "thing", ""])
