@@ -2,6 +2,6 @@
 
 def task03(arr)
     raise "Array is empty. This is not valid" if arr.empty?
-    arr1, arr2 = arr.partition{|elem| elem != "foo"}
-    arr1 + arr2
+    arr1, arr2 = arr.partition{|elem| elem.class == String && elem.strip.downcase == "foo"}
+    arr2 + arr1
 end
