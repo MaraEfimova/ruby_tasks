@@ -5,10 +5,10 @@ def task01(str)
     raise "No spaces before '>, <, =' symols"
   end
   str.gsub!(/ /, "")
-  if str.scan(/[<>]?=?\d+/)[0].length == str.length 
-    true
-  elsif str.scan(/\d+/)[0].length == str.length 
+  if str.scan(/\d+/)[0].length == str.length  
     false
+  elsif str.scan(/[<>]?=?\d+/)[0].length == str.length
+    true
   else
     raise "The input must be comparison symbol with integer number after that. Spaces are optional."
   end
