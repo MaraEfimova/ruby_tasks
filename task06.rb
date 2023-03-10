@@ -9,7 +9,14 @@ def task06(str)
 	if str.nil? || str.delete(" ").empty?
 		raise "String is empty."
 	end
-  str
+  
+	p str
+	str1 = str.gsub(/[aAbBcC]/, "2").gsub(/[dDeEfF]/, "3").gsub(/[gGhHiI]/, "4").gsub(/[jJkKlL]/, "5").gsub(/[mMnNoO]/, "6").gsub(/[pPqQrRsS]/, "7").gsub(/[tTuUvV]/, "8").gsub(/[wWxXyYzZ]/, "9")
+
+	if !str1.scan(/\s*[+]?\s*[a-zA-Z0-9-]+\s*/).empty?
+		return str.gsub(/[aAbBcC]/, "2").gsub(/[dDeEfF]/, "3").gsub(/[gGhHiI]/, "4").gsub(/[jJkKlL]/, "5").gsub(/[mMnNoO]/, "6").gsub(/[pPqQrRsS]/, "7").gsub(/[tTuUvV]/, "8").gsub(/[wWxXyYzZ]/, "9")
+	end
+	raise "Not a valid string. Only plus sign, dashes, numbers and letters are allowed."
 end
 
-p task06(007)
+p task06("   +1-800-+HElLo")
