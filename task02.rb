@@ -9,7 +9,7 @@ def task02(arr)
   end
 
   format_array = arr.flatten.join(" ").strip!
-  if format_array.empty?
+  if format_array.nil?
     raise "Not a valid input. The input had only empty data."
   end
   if !format_array.scan(/[^\s\w,-]/).empty? || !format_array.scan(/_/).empty?
