@@ -2,19 +2,17 @@
 
 def task05(arr)
   if arr.class != Array
-		raise "Not a valid format. Need an array"
+		raise ArgumentError, "Not a valid format. Need an array"
 	end
-	if arr.nil? || arr.empty?
-		raise "Array is empty. This is not valid"
+	if arr.empty?
+		raise ArgumentError, "Array is empty. This is not valid"
 	end
-  
-  first, second = arr[0], arr[1]
 
-  if arr.length != 2 || first.class != Integer || second.class != Integer
-    raise "Not a valid format. Need an array with two integer numbers inside"
+  if arr.length != 2 || !(arr[0].class == Integer || arr[0].class == Float) || !(arr[1].class == Integer || arr[1].class == Float)
+    raise ArgumentError, "Not a valid format. Need an array with two integer or float numbers inside"
   end
 
-  if first === 10 || second === 10 || first + second === 10
+  if [arr[0], arr[1], arr[0] + arr[1]].any? 10
     true
   else
     false
