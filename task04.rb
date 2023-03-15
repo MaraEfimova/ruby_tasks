@@ -4,7 +4,7 @@ def task04(arr)
 	if arr.class != Array
 		raise "Not a valid format. Need an array"
 	end
-	if arr.nil? || arr.empty?
+	if arr.empty?
 		raise "Array is empty. This is not valid"
 	end
 
