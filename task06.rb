@@ -18,13 +18,8 @@ def task06(str)
 		raise ArgumentError, "Check your pairs of brackets."
 	end
 
-	
-
 	if !str.scan(/\s*[+]?\s*[a-zA-Z0-9\-()]+\s*/).empty?
 		return str.downcase.tr('abcdefghijklmnopqrstuvwxyz', "22233344455566677778889999").delete(" ")
 	end
 	raise ArgumentError, "Not a valid string. Only plus sign, dashes, numbers and letters are allowed."
 end
-
-p task06("   +         380-(0        66)-hello-563")
- 
