@@ -10,15 +10,21 @@ def task06(str)
 	end 
 
 	str.split("-").each do |s|
-		if s.scan(/\A[a-zA-Z]+\z|\A\s*[+]*[0-9]+\z/).empty?
-			raise ArgumentError, "Explain part of the number either with numbers or with a word."
+		if s.scan(/\A[a-zA-Z\(\)\+]+\z|\A\s*[+]*\s*[0-9\(\)\+]+\z/).empty?
+			raise ArgumentError, "Write part of the phone number either in numbers or in words."
 		end
 	end
-  
-	str.downcase().tr!('abcdefghijklmnopqrstuvwxyz', "22233344455566677778889999")
+  if str.scan(/\(/).length != str.scan(/\)/).length 
+		raise ArgumentError, "Check your pairs of brackets."
+	end
 
-	if !str.scan(/\s*[+]?\s*[a-zA-Z0-9-]+\s*/).empty?
-		return str
+	
+
+	if !str.scan(/\s*[+]?\s*[a-zA-Z0-9\-()]+\s*/).empty?
+		return str.downcase.tr('abcdefghijklmnopqrstuvwxyz', "22233344455566677778889999").delete(" ")
 	end
 	raise ArgumentError, "Not a valid string. Only plus sign, dashes, numbers and letters are allowed."
 end
+
+p task06("   +         380-(0        66)-hello-563")
+ 
