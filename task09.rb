@@ -2,8 +2,8 @@
 
 def task09(str)
   raise ArgumentError, "Not a valid format. Need a string" if str.class != String
-	raise ArgumentError, "String is empty. This is not valid" if str.empty?
-	raise ArgumentError, "Only letters are allowed" if str.scan(/^[a-zA-Z]+$/).empty?
+  raise ArgumentError, "String is empty. This is not valid" if str.empty?
+  raise ArgumentError, "Only letters are allowed" if str.scan(/^[a-zA-Z]+$/).empty?
 
   final_str = ""
   arr = str.split("")
