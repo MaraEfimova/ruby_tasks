@@ -12,7 +12,7 @@ def task07(arr)
   def is_square?(x)
     (Math.sqrt(x) % 1).zero?
   end
-	
+
   arr[0] = 0 if arr[0] < 0
   if arr[0] == arr[1] && is_square?(arr[0])
     return 1
