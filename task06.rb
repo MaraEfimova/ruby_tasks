@@ -5,7 +5,7 @@ def task06(str)
   if str.class != String
     raise ArgumentError, "Not a valid format. Need a string."
   end
-  if str.nil? || str.delete(" ").empty?
+  if str.delete(" ").empty?
     raise ArgumentError, "String is empty."
   end 
 
