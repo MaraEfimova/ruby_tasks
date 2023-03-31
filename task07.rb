@@ -6,19 +6,20 @@ def task07(arr)
   arr.each do |i|
     raise ArgumentError, "Array must contain 2 numbers" if !(i.class == Integer || i.class == Float)
   end
-  raise ArgumentError, "Second number must be positive or zero" if arr[1] < 0
   raise ArgumentError, "First number can not be bigger than second." if arr[0] > arr[1]
-
-  def is_square?(x)
-    (Math.sqrt(x) % 1).zero?
-  end
+  raise ArgumentError, "Second number must be positive or zero" if arr[1] < 0
 
   arr[0] = 0 if arr[0] < 0
-  if arr[0] == arr[1] && is_square?(arr[0])
+  
+  if arr[0] == arr[1] && (Math.sqrt(arr[0]) % 1).zero?
     return 1
   end
 
   min = Math.sqrt(arr[0]).to_i + 1
+  if (Math.sqrt(arr[0]) % 1).zero?
+    min =  Math.sqrt(arr[0]).to_i
+  end
   max = Math.sqrt(arr[1]).to_i
+
   (max - min) + 1
 end
