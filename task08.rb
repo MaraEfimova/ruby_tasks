@@ -12,5 +12,3 @@ def task08(str)
   end
   final_str
 end
-
-p task08("01010101 01010101")
