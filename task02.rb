@@ -8,17 +8,17 @@ def task02(arr)
     raise ArgumentError, "The input is empty."
   end
 
-  format_string = arr.flatten.join(" ").strip!
-  if format_string.nil?
+  format_string = arr.flatten.join(" ").strip
+  if format_string.empty?
     raise ArgumentError, "Not a valid input. The input had only empty data."
   end
-  if !format_string.scan(/([^\s\w,-]|_)/).empty?
+  if format_string.match(/([^\s\w,-]|_)/)
     raise ArgumentError, "Not a valid input. Letters, numbers, commas and dash are allowed in logical order."
   end
-  if !format_string.scan(/\A[,]/).empty?
+  if format_string[0] === ","
     raise ArgumentError, "Not a valid input. A sentence cannot start with a comma. Only letters, numbers and dash are allowed."
   end
-  if !format_string.scan(/[,-]\z/).empty?
+  if [",", "-"].any? format_string[-1]
     raise ArgumentError, "Not a valid input. A sentence cannot end with a comma or dash. Only letters and numbers are allowed."
   end
 
