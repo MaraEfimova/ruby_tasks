@@ -14,7 +14,7 @@ def task06(str)
       raise ArgumentError, "Write part of the phone number either in numbers or in words."
     end
   end
-  if str.scan(/\(/).length != str.scan(/\)/).length 
+  if str.scan(/\(/).length != str.scan(/\)/).length || str.index("(") >= str.index(")")
     raise ArgumentError, "Check your pairs of brackets."
   end
 
@@ -23,3 +23,5 @@ def task06(str)
   end
   raise ArgumentError, "Not a valid string. Only plus sign, dashes, numbers and letters are allowed."
 end
+
+p task06('1-(800)-hello')
