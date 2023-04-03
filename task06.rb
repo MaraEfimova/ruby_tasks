@@ -5,23 +5,24 @@ def task06(str)
   if str.class != String
     raise ArgumentError, "Not a valid format. Need a string."
   end
-  if str.delete(" ").empty?
+  if str.delete(" -()").empty?
     raise ArgumentError, "String is empty."
-  end 
+  end
 
-  str.split("-").each do |s|
-    if s.scan(/\A[a-zA-Z\(\)\+]+\z|\A\s*[+]*\s*[0-9\(\)\+]+\z/).empty?
+  str.delete!(" ")
+  
+  str.delete("+()").split("-").each do |s|
+    if s.scan(/\A[a-zA-Z]+\z|\A[0-9]+\z/).empty?
       raise ArgumentError, "Write part of the phone number either in numbers or in words."
     end
   end
-  if str.scan(/\(/).length != str.scan(/\)/).length || str.index("(") >= str.index(")")
+
+  if str.scan(/[\(\)]/).count != 0 && (str.scan(/\(/).length != str.scan(/\)/).length || str.scan(/[\(\)]/).count != 2 || str.index("(") >= str.index(")"))
     raise ArgumentError, "Check your pairs of brackets."
   end
 
-  if !str.scan(/\s*[+]?\s*[a-zA-Z0-9\-()]+\s*/).empty?
-    return str.downcase.tr('abcdefghijklmnopqrstuvwxyz', "22233344455566677778889999").delete(" ")
+  if str.match(/\A[+]?[a-zA-Z0-9\-()]+\z/)
+    return str.downcase.tr('abcdefghijklmnopqrstuvwxyz', "22233344455566677778889999")
   end
   raise ArgumentError, "Not a valid string. Only plus sign, dashes, numbers and letters are allowed."
 end
-
-p task06('1-(800)-hello')
