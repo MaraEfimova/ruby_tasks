@@ -2,6 +2,7 @@
 
 def task08(str)
   raise ArgumentError, "Not a valid format. Need a string" if str.class != String
+  str.delete!(" ")
   raise ArgumentError, "String is empty. This is not valid" if str.empty?
   raise ArgumentError, "The string must be divisible by 8" if !((str.length % 8).zero?)
   raise ArgumentError, "The input string must contain only 0 or 1 symbols" if str.scan(/\A[01]+\z/).empty?
@@ -11,3 +12,5 @@ def task08(str)
   end
   final_str
 end
+
+p task08("01010101 01010101")
