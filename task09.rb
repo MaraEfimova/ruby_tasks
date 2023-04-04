@@ -18,5 +18,3 @@ def task09(str)
   end
   final_str
 end
-
-p task09("djfhskdjfh sdfsdkf")
