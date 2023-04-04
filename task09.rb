@@ -2,11 +2,11 @@
 
 def task09(str)
   raise ArgumentError, "Not a valid format. Need a string" if str.class != String
-  raise ArgumentError, "String is empty. This is not valid" if str.empty?
+  raise ArgumentError, "String is empty. This is not valid" if str.delete!(" ").empty?
   raise ArgumentError, "Only letters are allowed" if str.scan(/^[a-zA-Z]+$/).empty?
 
   final_str = ""
-  arr = str.split("")
+  arr = str.chars
   arr.each do |letter|
     if letter == "z"
       final_str += "a"
@@ -18,3 +18,5 @@ def task09(str)
   end
   final_str
 end
+
+p task09("djfhskdjfh sdfsdkf")
