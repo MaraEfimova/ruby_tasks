@@ -10,6 +10,7 @@ def task11(arr)
     raise ArgumentError, "The element must contain at least one letter." if arr.one? {|elem| elem.empty?}
     raise ArgumentError, "The element must contain only one word" if !elem.match(/\A[a-zA-Z]+\z/)
   end
+  raise ArgumentError, "Array can not contain oly one word. It is not a game thought." if arr.length == 1
   raise ArgumentError, "Array must contain only unique values." if arr.length != arr.uniq.length
 
   i = 0
