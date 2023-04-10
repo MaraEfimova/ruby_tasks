@@ -16,6 +16,7 @@ def task11(arr)
   i = 0
   while i < arr.count-1 do
     if arr[i][-1] != arr[i+1][0]
+      return false
     end
     i+=1
   end
