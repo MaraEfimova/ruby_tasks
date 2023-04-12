@@ -4,8 +4,8 @@ def task10(arr)
   raise ArgumentError, "Not a valid format. Need an array" if arr.class != Array
   raise ArgumentError, "Array is empty. This is not valid" if arr.empty?
   raise ArgumentError, "Not a valid format. Need an array with more then two numbers inside" if arr.length < 3 
-  arr.each do |number|
-    raise ArgumentError, "Not a valid format. Elements must be Integer or Float numbers." if number.class != Integer && number.class != Float
+  arr.each do |element|
+    raise ArgumentError, "Not a valid format. Elements must be Integer or Float numbers." if element.class != Integer && element.class != Float
   end
 
   if arr.length >= 5
