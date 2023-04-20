@@ -8,11 +8,6 @@ def task10(arr)
     raise ArgumentError, "Not a valid format. Elements must be Integer or Float numbers." if element.class != Integer && element.class != Float
   end
 
-  if arr.length >= 5
-    arr.sort!
-    arr = [arr[0], arr[1], arr[-1], arr[-2], arr[-3]]
-  end
-
   multipl_arr = []
   arr = arr.combination(3).to_a
   
